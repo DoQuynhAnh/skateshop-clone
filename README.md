@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# [Skateshop](https://skateshop.sadmn.com/)
 
-## Getting Started
+This is an open source e-commerce skateshop build with everything new in Next.js 14. It is bootstrapped with `create-t3-app`.
 
-First, run the development server:
+[![Skateshop](./public/images/screenshot.png)](https://skateshop.sadmn.com/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+> **Warning**
+> This project is still in development and is not ready for production use.
+>
+> It uses new technologies (drizzle ORM) which are subject to change and may break your application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** [Next.js](https://nextjs.org)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com)
+- **User Management:** [Clerk](https://clerk.com)
+- **ORM:** [Drizzle ORM](https://orm.drizzle.team)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com)
+- **Email:** [React Email](https://react.email)
+- **Content Management:** [Contentlayer](https://www.contentlayer.dev)
+- **File Uploads:** [uploadthing](https://uploadthing.com)
+- **Payments infrastructure:** [Stripe](https://stripe.com)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Features to be implemented
 
-## Learn More
+- [x] Authentication with **Clerk**
+- [x] File uploads with **uploadthing**
+- [x] Newsletter subscription with **React Email** and **Resend**
+- [x] Blog using **MDX** and **Contentlayer**
+- [x] ORM using **Drizzle ORM**
+- [x] Database on **PlanetScale**
+- [x] Validation with **Zod**
+- [x] Storefront with products, categories, and subcategories
+- [x] Seller and customer workflows
+- [x] User subscriptions with **Stripe**
+- [ ] Checkout with **Stripe Checkout**
+- [ ] Admin dashboard with stores, products, orders, subscriptions, and payments
 
-To learn more about Next.js, take a look at the following resources:
+## Running Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/sadmann7/skateshop.git
+   ```
 
-## Deploy on Vercel
+2. Install dependencies using pnpm
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   pnpm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Copy the `.env.example` to `.env` and update the variables.
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. Start the development server
+
+   ```bash
+   pnpm run dev
+   ```
+
+5. Push the database schema
+
+   ```bash
+   pnpm run db:push
+   ```
+
+6. Start the Stripe webhook listener
+
+   ```bash
+   pnpm run stripe:listen
+   ```
+
+## How do I deploy this?
+
+Follow the deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+## Contributing
+
+Contributions are welcome! Please open an issue if you have any questions or suggestions. Your contributions will be acknowledged. See the [contributing guide](./CONTRIBUTING.md) for more information.
+
+## Contributors
+
+Thanks goes to these wonderful people for their contributions:
+
+<p align="center">
+ <a href="https://github.com/sadmann7/skateshop/graphs/contributors">
+   <img src="https://contrib.rocks/image?repo=sadmann7/skateshop" />
+ </a>
+</p>
+
+<p align="center">
+ Made with <a rel="noopener noreferrer" target="_blank" href="https://contrib.rocks">contrib.rocks</a>
+</p>
+
+## License
+
+Licensed under the MIT License. Check the [LICENSE](./LICENSE.md) file for details.
