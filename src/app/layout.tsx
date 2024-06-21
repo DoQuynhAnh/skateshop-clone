@@ -6,6 +6,7 @@ import { GeistMono } from "geist/font/mono"
 import { GeistSans } from "geist/font/sans"
 
 import { cn } from "@/lib/utils"
+import Toaster from "@/components/ui/Toaster"
 import ThemeProvider from "@/components/providers"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 
@@ -40,8 +41,8 @@ export default function RootLayout({
 
         {/* <TailwindIndicator />
             <Analytics />
-          </ThemeProvider>
-          <Toaster /> */}
+           */}
+        <Toaster />
       </body>
     </html>
   )
