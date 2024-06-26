@@ -64,8 +64,30 @@ const MainNav = ({ items }: MainNavProps) => {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
+          {items
+            .filter((e) => e.title !== items[0]?.title)
+            .map((e) => (
+              <NavigationMenuItem key={e.title}>
+                <NavigationMenuTrigger className="h-auto capitalize">
+                  {e.title}
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                    {e.items &&
+                      e.items.map((item) => (
+                        <ListItem
+                          key={item.title}
+                          title={item.title}
+                          href={item.href}
+                        >
+                          {item.description}
+                        </ListItem>
+                      ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            ))}
         </NavigationMenuList>
-        {/* {items.} */}
       </NavigationMenu>
     </div>
   )
@@ -75,7 +97,7 @@ const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, href, ...props }, ref) => (
-  <li>
+  <li className="">
     <NavigationMenuLink asChild>
       <Link
         ref={ref}
