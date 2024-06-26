@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { ClerkProvider } from "@clerk/nextjs"
 
 import "./globals.css"
 
@@ -21,29 +22,31 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          GeistSans.variable,
-          GeistMono.variable
-          // fontHeading.variable
-        )}
-      >
-        <ThemeProvider
-          defaultTheme="system"
-          attribute="class"
-          disableTransitionOnChange
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={cn(
+            "min-h-screen bg-background font-sans antialiased",
+            GeistSans.variable,
+            GeistMono.variable
+            // fontHeading.variable
+          )}
         >
-          {children}
-          <TailwindIndicator />
-        </ThemeProvider>
+          <ThemeProvider
+            defaultTheme="system"
+            attribute="class"
+            disableTransitionOnChange
+          >
+            {children}
+            <TailwindIndicator />
+          </ThemeProvider>
 
-        {/* <TailwindIndicator />
+          {/* <TailwindIndicator />
             <Analytics />
            */}
-        <Toaster />
-      </body>
-    </html>
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }
